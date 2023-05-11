@@ -1,0 +1,86 @@
+.beers_list {
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  height: calc(100vh - 97px);
+  min-height: 800px;
+}
+
+.beers_list__item {
+  display: flex;
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+  padding: 4rem 2rem 2rem;
+}
+
+.beers_list__item_aside {
+  flex-basis: 20%;
+}
+
+/* Beer Text */
+
+.beer_text__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.beer_text {
+  transform: translateY(100%);
+  transition: all 0.4s ease-in-out;
+}
+
+.beer_upper_text:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.beer_upper_text:last-child {
+  transition-delay: 0.2s;
+}
+
+/* Beer Images */
+
+.beers_list__item_images_container {
+  flex-grow: 1;
+  position: relative;
+  isolation: isolate;
+}
+
+.beer_background {
+  display: block;
+  margin-inline: auto;
+  width: 40%;
+  height: 85%;
+  border-radius: 50vw;
+  object-fit: cover;
+  object-position: center;
+}
+
+.beer_glass {
+  position: absolute;
+  width: 300px;
+  height: 500px;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.beer_plaque {
+  position: absolute;
+}
+
+/* Navigation Arrow Icons */
+
+.beers_arrowIcons__container {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+
+  display: flex;
+  gap: 0.5rem;
+}
+
+.beers_arrowIcon {
+  font-size: 3.5rem;
+}

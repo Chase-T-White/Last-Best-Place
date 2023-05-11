@@ -1,0 +1,58 @@
+[
+  {
+    "id": "1",
+    "event": "Gameday",
+    "description": "Sunday is a day for relaxing and resetting before the upcoming work week. Hang out and have a game day at LBP where we have great beers and a fantastic selection of board/card games in our tasting room. Try one of our great games or bring your own and maybe meet some new friends across the board! We have weekly pint specials on Sunday and have current season's sports playing as well!",
+    "when": "Every Sunday, 12pm - 8pm",
+    "specialEvent": false,
+    "eventImg": ""
+  },
+  {
+    "id": "2",
+    "event": "Trivia",
+    "description": "Grab some friends and put your collective knowledge to work with our weekly trivia! Four rounds of questions to challenge the depths of your random known facts while you stay hydrated with your favorite LBP brews. Great prizes for the top 3 teams!",
+    "when": "Every Tuesday, 6pm - 8pm",
+    "specialEvent": false,
+    "eventImg": ""
+  },
+  {
+    "id": "3",
+    "event": "Singo",
+    "description": "Do you like music? Are you a fan of Bingo? Well LBP has an event for you. Gather your mates and stop on in for SINGO. Relax and have some fun on hump day and test your music knowledge. Now you can justify all those Spotify playlists, am I right?",
+    "when": "Every Wednesday, 6pm - 8pm",
+    "specialEvent": false,
+    "eventImg": ""
+  },
+  {
+    "id": "4",
+    "event": "Ladies' Night",
+    "description": "Ladies, come on down for a night to honor you! With 1$ off your beers, bring your girlfriends for a girls night out!",
+    "when": "Every Thursday, 4pm - 8pm",
+    "specialEvent": false,
+    "eventImg": ""
+  },
+  {
+    "id": "5",
+    "event": "Kentucky Derby",
+    "description": "Join us to watch the 149th Kentucky Derby! All pints will be $5 for pre and post-race enjoyment. Derby attendees are renown for fancy garb and outrageous hats, so dress up with some friends. Prizes will be given for the best dressed and wildest hats!",
+    "when": "Sat, May 6th, 4pm - 6pm",
+    "specialEvent": true,
+    "eventImg": ""
+  },
+  {
+    "id": "6",
+    "event": "MSU Graduation Weekend",
+    "description": "Congratulations to all MSU Grads! Bring in your cat card and you and your family will get your beers for $5 all weekend long! GO CATS!",
+    "when": "May 12th - 14th, 12pm - 8pm",
+    "specialEvent": true,
+    "eventImg": ""
+  },
+  {
+    "id": "7",
+    "event": "Crafting with Crafts - Watercolor Painting",
+    "description": "Join us for a fun evening of crafting with a craft brew in hand! This evening our host will be leading participants in watercolor painting. Conjure your inner Bob Ross, grab some friends and come paint a masterpiece with your favorite drafts on tap!",
+    "when": "Fri May 19th, 6pm - 8pm",
+    "specialEvent": true,
+    "eventImg": ""
+  }
+]
