@@ -46,49 +46,6 @@ const page = () => {
     return <Loading />;
   }
 
-  const parentVariant = {
-    hidden: {
-      opacity: 0,
-    },
-    visible: {
-      opacity: 1,
-    },
-  };
-
-  const textVariant = {
-    hidden: {
-      opacity: 0,
-      y: "100%",
-    },
-
-    visible: {
-      opacity: 1,
-      y: 0,
-    },
-  };
-
-  const imgScaleDown = {
-    hidden: {
-      opacity: 0,
-      scale: 2,
-    },
-    visible: {
-      opacity: 1,
-      scale: 1,
-    },
-  };
-
-  const imgScaleUp = {
-    hidden: {
-      opacity: 0,
-      scale: 0,
-    },
-    visible: {
-      opacity: 1,
-      scale: 1,
-    },
-  };
-
   return (
     <main className="relative">
       <ul className={styles.beers_list}>
@@ -106,18 +63,13 @@ const page = () => {
           }
           return (
             <li
-              variants={parentVariant}
               key={beer.id}
               className={`${styles.beers_list__item} ${sliderPosition}`}
             >
               <aside
                 className={`${styles.beers_list__item_aside} ${styles.beer_text__container}`}
               >
-                <motion.header
-                  variants={textVariant}
-                  staggerChildren
-                  className={styles.beer_upper_text}
-                >
+                <header staggerChildren className={styles.beer_upper_text}>
                   <h4 className={`alt-textStyle ${styles.beer_text}`}>
                     {beer.type}
                   </h4>
@@ -125,8 +77,8 @@ const page = () => {
                   <h6 className={`alt-textStyle ${styles.beer_text}`}>
                     {beer.alcoholContent}
                   </h6>
-                </motion.header>
-                <motion.div variants={textVariant}>
+                </header>
+                <div>
                   <h6 className={`alt-textStyle ${styles.beer_text}`}>
                     {beer.category}
                   </h6>
@@ -136,7 +88,7 @@ const page = () => {
                   ) : (
                     ""
                   )}
-                </motion.div>
+                </div>
               </aside>
               <article className={styles.beers_list__item_images_container}>
                 <Image
