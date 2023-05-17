@@ -1,0 +1,125 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/******** Home Page ********/
+
+/* Hero */
+
+.hero_section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  min-height: 800px;
+  overflow: hidden;
+}
+
+.hero_video {
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+/* Mission Statement */
+
+.mission_section {
+  position: relative;
+  height: clamp(400px, 90vh, 1000px);
+}
+
+.mission_heading {
+  position: absolute;
+  top: 0;
+  left: 5%;
+  color: #253b2ec7;
+}
+
+.mission_content {
+  width: 100%;
+  height: 100%;
+  padding-block: 8rem;
+  background: var(--text1);
+  display: flex;
+}
+
+.mission_img_container {
+  position: relative;
+  flex: 1 1 45%;
+}
+
+.mission_img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.mission_text {
+  flex: 0 1 55%;
+  padding-inline: 5rem;
+  font-size: clamp(1.5rem, 2vw, 3rem);
+}
+
+/* Beers */
+
+.beers_section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  min-height: 400px;
+  isolation: isolate;
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+}
+
+.beers_img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
+}
+
+.beers_content {
+  grid-column: 8 / -2;
+  grid-row: 4 / -2;
+
+  background-color: #1f1f1fc9;
+}
+
+/* Events */
+
+.events_section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  min-height: 400px;
+  isolation: isolate;
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+}
+
+.events_img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
+}
+
+.events_content {
+  grid-column: 2 / span 4;
+  grid-row: 4 / -2;
+
+  background-color: #1f1f1fc9;
+}

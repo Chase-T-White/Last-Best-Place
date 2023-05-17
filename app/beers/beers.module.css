@@ -26,19 +26,6 @@
   justify-content: space-between;
 }
 
-.beer_text {
-  transform: translateY(100%);
-  transition: all 0.4s ease-in-out;
-}
-
-.beer_upper_text:nth-child(2) {
-  transition-delay: 0.1s;
-}
-
-.beer_upper_text:last-child {
-  transition-delay: 0.2s;
-}
-
 /* Beer Images */
 
 .beers_list__item_images_container {
