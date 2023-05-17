@@ -1,12 +1,12 @@
 import React from "react";
-import styles from "../../home.module.css";
+import styles from "../../../home.module.css";
 import newBeer from "/public/images/home/beer/newBeer.jpg";
 import Image from "next/image";
 import Link from "next/link";
 
-const Beers = () => {
+const NewBeer = () => {
   return (
-    <section className={styles.beers_section}>
+    <article className={styles.beers_article}>
       <Image
         src={newBeer}
         className={styles.beers_img}
@@ -23,8 +23,8 @@ const Beers = () => {
         </p>
         <Link href="/beers">View Beers</Link>
       </div>
-    </section>
+    </article>
   );
 };
 
-export default Beers;
+export default NewBeer;
