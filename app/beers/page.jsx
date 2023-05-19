@@ -10,9 +10,61 @@ import {
 } from "react-icons/bs";
 import { motion, AnimatePresence } from "framer-motion";
 
+const textVariants = {
+  initial: {
+    opacity: 0,
+    y: "100%",
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      staggerChildren: 0.1,
+      type: "linear",
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: "100%",
+    transition: {
+      duration: 0.5,
+      staggerChildren: 0.1,
+      type: "linear",
+    },
+  },
+};
+
+const imgVariants = {
+  initialLg: {
+    opacity: 0,
+    scale: 1.5,
+  },
+  initialSm: {
+    opacity: 0,
+    scale: 0,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      type: "linear",
+    },
+  },
+  exitLg: {
+    opacity: 0,
+    scale: 1.5,
+  },
+  exitSm: {
+    opacity: 0,
+    scale: 0,
+  },
+};
+
 const page = () => {
   const [beers, setBeers] = useState([]);
-  const [beerImgs, setBeerImgs] = useState([]);
+  const [currentBeer, setCurrentBeer] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [index, setIndex] = useState(0);
 
@@ -21,11 +73,12 @@ const page = () => {
       const res = await fetch("/api/beers");
       const data = await res.json();
       setBeers(data);
-      setBeerImgs(() => {
-        beers.map((beer) => {
-          return beer.beerImg;
-        });
-      });
+      setCurrentBeer(data[0]);
+      // setBeerImgs(() => {
+      //   beers.map((beer) => {
+      //     return beer.beerImg;
+      //   });
+      // });
       setIsLoading(false);
     };
 
@@ -33,13 +86,7 @@ const page = () => {
   }, []);
 
   useEffect(() => {
-    const lastIndex = beers.length - 1;
-    if (index < 0) {
-      setIndex(lastIndex);
-    }
-    if (index > lastIndex) {
-      setIndex(0);
-    }
+    setCurrentBeer(beers[index]);
   }, [index, beers]);
 
   if (isLoading) {
@@ -47,87 +94,116 @@ const page = () => {
   }
 
   return (
-    <main className="relative">
-      <ul className={styles.beers_list}>
-        {beers.map((beer, beerIndex) => {
-          let sliderPosition = "beer-queued";
-          let nextBeer;
-          if (beerIndex === index) {
-            sliderPosition = "beer-current";
-          }
-          if (
-            beerIndex === index + 1 ||
-            (index === beers.length - 1 && beerIndex === 0)
-          ) {
-            nextBeer = "beer-next";
-          }
-          return (
-            <li
-              key={beer.id}
-              className={`${styles.beers_list__item} ${sliderPosition}`}
+    <main className={styles.beers_list}>
+      <AnimatePresence initial={false}>
+        <article key={index} className={`${styles.beers_list__item}`}>
+          <aside
+            className={`${styles.beers_list__item_aside} ${styles.beer_text__container}`}
+          >
+            <motion.header
+              className={styles.beer_upper_text}
+              variants={textVariants}
+              initial="initial"
+              animate="visible"
+              exit="exit"
             >
-              <aside
-                className={`${styles.beers_list__item_aside} ${styles.beer_text__container}`}
+              <h4 className={`alt-textStyle ${styles.beer_text}`}>
+                {currentBeer.type}
+              </h4>
+              <h2 className={styles.beer_text}>{currentBeer.name}</h2>
+              <h6 className={`alt-textStyle ${styles.beer_text}`}>
+                {currentBeer.alcoholContent}
+              </h6>
+            </motion.header>
+            <motion.div
+              variants={textVariants}
+              initial="initial"
+              animate="visible"
+              exit="exit"
+            >
+              <h6 className={`alt-textStyle ${styles.beer_text}`}>
+                {currentBeer.category}
+              </h6>
+              <p className={styles.beer_text}>{currentBeer.description}</p>
+              {currentBeer.glutenReduced ? (
+                <p className={styles.beer_text}>**Gluten Reduced</p>
+              ) : (
+                ""
+              )}
+            </motion.div>
+          </aside>
+          <article className={styles.beers_list__item_images_container}>
+            <motion.div
+              variants={imgVariants}
+              initial="initialLg"
+              animate="visible"
+              exit="exitLg"
+              className={styles.beer_glass_container}
+            >
+              <Image
+                src={currentBeer.beerImg}
+                alt={`${currentBeer.name} in a Last Best Place pint glass`}
+                fill
+                className={styles.beer_glass}
+              />
+            </motion.div>
+            <div className={styles.beer_background_container}>
+              <motion.div
+                variants={imgVariants}
+                initial="initialLg"
+                animate="visible"
+                exit="exitLg"
+                className={styles.beer_subContainer}
               >
-                <header staggerChildren className={styles.beer_upper_text}>
-                  <h4 className={`alt-textStyle ${styles.beer_text}`}>
-                    {beer.type}
-                  </h4>
-                  <h2 className={styles.beer_text}>{beer.name}</h2>
-                  <h6 className={`alt-textStyle ${styles.beer_text}`}>
-                    {beer.alcoholContent}
-                  </h6>
-                </header>
-                <div>
-                  <h6 className={`alt-textStyle ${styles.beer_text}`}>
-                    {beer.category}
-                  </h6>
-                  <p className={styles.beer_text}>{beer.description}</p>
-                  {beer.glutenReduced ? (
-                    <p className={styles.beer_text}>**Gluten Reduced</p>
-                  ) : (
-                    ""
-                  )}
-                </div>
-              </aside>
-              <article className={styles.beers_list__item_images_container}>
                 <Image
-                  src={beer.beerImg}
-                  alt={`${beer.name} in a Last Best Place pint glass`}
-                  height={300}
-                  width={300}
-                  className={styles.beer_glass}
-                />
-                <Image
-                  src={beer.backgroundImg}
+                  src={currentBeer.backgroundImg}
                   alt="Background image"
-                  height={300}
-                  width={300}
+                  fill
                   className={styles.beer_background}
                 />
-              </article>
-              <aside className={styles.beers_list__item_aside}>
-                <p>
-                  <span>{beer.id}</span>/{beers.length}
-                </p>
-                {/* <div className={styles.beerImgs_container}>
-                  {beerImgs.map((image) => {
-                    return <Image src={image} alt="LBP beer in pint glass" width={100} height={250} className={}/>
-                  })}
-                </div> */}
-              </aside>
-            </li>
-          );
-        })}
-      </ul>
+              </motion.div>
+            </div>
+          </article>
+          <aside className={styles.beers_list__item_aside}>
+            <p>
+              <span>{currentBeer.id}</span>/{beers.length}
+            </p>
+            <motion.div
+              variants={imgVariants}
+              initial="initialSm"
+              animate="visible"
+              exit="exitSm"
+              className={styles.beerImgs_container}
+            >
+              <Image
+                src={beers[index + 1].beerImg}
+                alt="LBP beer in pint glass"
+                fill
+              />
+            </motion.div>
+          </aside>
+        </article>
+      </AnimatePresence>
       <div className={styles.beers_arrowIcons__container}>
         <BsFillArrowLeftCircleFill
           className={styles.beers_arrowIcon}
-          onClick={() => setIndex(index - 1)}
+          onClick={() => {
+            if (index === 0) {
+              setIndex(beers.length - 1);
+            } else {
+              setIndex(index - 1);
+            }
+          }}
         />
         <BsFillArrowRightCircleFill
           className={styles.beers_arrowIcon}
-          onClick={() => setIndex(index + 1)}
+          onClick={() => {
+            if (index === beers.length - 1) {
+              setIndex(0);
+            } else {
+              setIndex(index + 1);
+            }
+          }}
         />
       </div>
     </main>

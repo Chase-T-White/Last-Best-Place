@@ -164,3 +164,71 @@ nav {
 .beer-next {
   opacity: 0;
 }
+
+.practice {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  height: 100%;
+}
+
+.practice-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  border-radius: 10px;
+  background-color: var(--primary-color-shade1);
+  padding: 2rem;
+  box-shadow: 1px 1px 8px 2px rgba(0, 0, 0, 0.473);
+}
+
+.practice-box:last-child {
+  opacity: 0;
+}
+
+.practice-text {
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.practice-text:first-child {
+  text-align: center;
+}
+
+.practice-pill {
+  width: 100px;
+  height: 150px;
+  border-radius: 100vw;
+  overflow: hidden;
+  margin-inline: auto;
+}
+
+.practice-img_container {
+  display: flex;
+  justify-content: center;
+}
+
+.practice-img {
+  object-fit: cover;
+}
+
+.prac-icons_container {
+  display: flex;
+  gap: 2rem;
+}
+
+.prac-icons__container {
+  display: inline-block;
+  margin-bottom: 10rem;
+}
+
+.prac-arrow {
+  font-size: 4rem;
+  cursor: pointer;
+  color: var(--primary-color);
+}

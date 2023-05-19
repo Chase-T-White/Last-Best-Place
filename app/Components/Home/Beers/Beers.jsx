@@ -5,35 +5,36 @@ import styles from "../../../home.module.css";
 import NewBeer from "./NewBeer";
 import BeerAnnouncement from "./BeerAnnouncement";
 import BeerOfWeek from "./BeerOfWeek";
+import PracMotion from "./PracMotion";
 import { motion, AnimatePresence } from "framer-motion";
 
-const variants = {
-  enter: (direction) => {
-    return {
-      x: direction > 0 ? 1000 : -1000,
-      opacity: 0,
-    };
+const transitionVariant = {
+  hidden: {
+    opacity: 0,
   },
-  center: {
-    zIndex: 1,
-    x: 0,
+  visible: {
     opacity: 1,
+    x: 0,
+    transition: {
+      duration: 1,
+      type: "linear",
+      when: "beforeChildren",
+    },
   },
-  exit: (direction) => {
-    return {
-      zIndex: 0,
-      x: direction < 0 ? 1000 : -1000,
-      opacity: 0,
-    };
+  exit: {
+    opacity: 0,
   },
 };
 
 const Beers = () => {
   return (
     <section className={styles.beers_section}>
-      <NewBeer />
-      {/* <BeerAnnouncement />
-      <BeerOfWeek /> */}
+      <AnimatePresence initial={false}>
+        <PracMotion />
+        {/* <NewBeer />
+        <BeerAnnouncement />
+        <BeerOfWeek /> */}
+      </AnimatePresence>
     </section>
   );
 };
