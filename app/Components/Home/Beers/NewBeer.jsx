@@ -1,8 +1,11 @@
+"use client";
+
 import React from "react";
 import styles from "../../../home.module.css";
 import newBeer from "/public/images/home/beer/newBeer.jpg";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const NewBeer = () => {
   return (
@@ -21,7 +24,11 @@ const NewBeer = () => {
           citrus and a touch of sunshine, delivering the perfect companion for
           warm days and good times.
         </p>
-        <Link href="/beers">View Beers</Link>
+        <div>
+          <Link href="/beers" className="btn-primary">
+            View Beers
+          </Link>
+        </div>
       </div>
     </article>
   );

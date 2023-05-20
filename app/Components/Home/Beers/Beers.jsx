@@ -5,7 +5,6 @@ import styles from "../../../home.module.css";
 import NewBeer from "./NewBeer";
 import BeerAnnouncement from "./BeerAnnouncement";
 import BeerOfWeek from "./BeerOfWeek";
-import PracMotion from "./PracMotion";
 import { motion, AnimatePresence } from "framer-motion";
 
 const transitionVariant = {
@@ -30,10 +29,9 @@ const Beers = () => {
   return (
     <section className={styles.beers_section}>
       <AnimatePresence initial={false}>
-        <PracMotion />
-        {/* <NewBeer />
+        {/* <NewBeer /> */}
         <BeerAnnouncement />
-        <BeerOfWeek /> */}
+        {/* <BeerOfWeek /> */}
       </AnimatePresence>
     </section>
   );
