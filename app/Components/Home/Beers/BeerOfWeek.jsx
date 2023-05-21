@@ -25,7 +25,9 @@ const BeerOfWeek = () => {
           companion to unwind and embrace the magic of twilight hours, making it
           an easy choice for our Beer of the Week selection.
         </p>
-        <Link href="/beers">View Beers</Link>
+        <Link href="/beers" className="btn-primary btn__dark-shadow">
+          View Beers
+        </Link>
       </div>
     </article>
   );

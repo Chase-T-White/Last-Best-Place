@@ -8,22 +8,6 @@ import dadBod from "/public/images/home/beer/dadBod.png";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-const dadBodVariant = {
-  initial: {
-    top: 200,
-  },
-  popUp: {
-    top: 0,
-    transition: {
-      duration: 2,
-      delay: 5,
-      type: "linear",
-      repeatType: "reverse",
-      repeat: Infinity,
-    },
-  },
-};
-
 const BeerAnnouncement = () => {
   return (
     <article className={styles.beers_article}>
@@ -31,9 +15,19 @@ const BeerAnnouncement = () => {
         <div className={styles.announcement_img_container}>
           <Image src={can} alt="LBP beer can" fill />
           <motion.div
-            variants={dadBodVariant}
-            initial="initial"
-            animate="popUp"
+            initial={{ y: 200, x: 50, rotate: -25 }}
+            animate={{
+              y: 0,
+              x: 0,
+              rotate: -25,
+            }}
+            transition={{
+              duration: 1,
+              type: "linear",
+              repeat: Infinity,
+              repeatType: "reverse",
+              repeatDelay: 7,
+            }}
           >
             <Image src={dadBod} alt="Dad Bod" fill />
           </motion.div>
@@ -41,7 +35,7 @@ const BeerAnnouncement = () => {
         <div className={styles.announcemet_text_content}>
           <h1>We Have Cans!</h1>
           <p>Grab a 6-pack to-go from our tasting room cooler!</p>
-          <Link href="/beers" className="btn-primary">
+          <Link href="/beers" className="btn-primary btn__dark-shadow ">
             View Beers
           </Link>
         </div>

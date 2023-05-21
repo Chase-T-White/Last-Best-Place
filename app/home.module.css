@@ -145,16 +145,23 @@
 }
 
 .announcement_img_container div {
-  position: absolute;
+  position: relative;
   width: 285px;
   height: 315px;
   z-index: -5;
-  transform: rotate(-25deg);
 }
 
 .announcemet_text_content {
   grid-column: 5 / span 4;
   grid-row: 2 / span 4;
+}
+
+.announcemet_text_content h1 {
+  margin-bottom: 1rem;
+}
+
+.announcemet_text_content p {
+  margin-bottom: 2rem;
 }
 
 /* Beer of the Week */
@@ -173,6 +180,14 @@
 .beerWeek_content {
   grid-column: 8 / span 4;
   grid-row: 3 / span 4;
+}
+
+.beerWeek_content h1 {
+  margin-bottom: 1rem;
+}
+
+.beerWeek_content p {
+  margin-bottom: 2rem;
 }
 
 /*** Events ***/
@@ -199,8 +214,97 @@
 }
 
 .events_content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  justify-content: center;
   grid-column: 2 / span 4;
   grid-row: 4 / -2;
 
   background-color: #1f1f1fc9;
+  backdrop-filter: blur(10px);
+  color: var(--text-lighter);
+  padding-inline: 1.5rem;
+}
+
+.events_content h3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50px, -50%);
+  color: var(--text);
+  background-color: var(--light);
+  text-align: center;
+  padding: 1rem 1.5rem;
+}
+
+/*** Visit ***/
+
+.visit_section {
+  width: 100vw;
+  min-height: 100vh;
+  min-height: 400px;
+  background-image: linear-gradient(transparent 30%, var(--text1) 30%);
+  padding-bottom: 10rem;
+}
+
+.visit_img_block {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10rem;
+  margin-bottom: 5rem;
+}
+
+.block_img_container {
+  position: relative;
+  width: 45vw;
+  height: 600px;
+}
+
+.visit_content {
+  display: flex;
+  width: 70%;
+  margin-inline: auto;
+
+  border: 2px solid var(--light);
+  border-radius: 10px;
+  box-shadow: 0 0 10px 3px var(--light);
+  color: var(--light);
+}
+
+.visit_content h5 {
+  border-bottom: 1px solid var(--light);
+  margin-bottom: 1rem;
+}
+
+.visit_content div {
+  flex-basis: 50%;
+}
+
+.visit_lbpInfo {
+  padding: 6rem 1rem;
+}
+
+.visit_address {
+  margin-bottom: 2rem;
+}
+
+.visit_hours p {
+  margin-bottom: 1.5rem;
+}
+
+.visit_icons_container > * {
+  font-size: 2rem;
+  margin-right: 1.5rem;
+  color: var(--primary-color);
+}
+
+.map_container {
+  min-height: 100%;
+}
+
+.lbp_map {
+  width: 100%;
+  height: 100%;
 }

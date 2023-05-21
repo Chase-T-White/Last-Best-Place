@@ -5,6 +5,7 @@ import Hero from "./Components/Home/Hero";
 import Mission from "./Components/Home/Mission";
 import Beers from "./Components/Home/Beers/Beers";
 import Events from "./Components/Home/Events";
+import Visit from "./Components/Home/Visit";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,6 +16,7 @@ export default function Home() {
       <Mission />
       <Beers />
       <Events />
+      <Visit />
     </main>
   );
 }

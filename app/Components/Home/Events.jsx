@@ -51,7 +51,11 @@ const Events = () => {
             : "At Last Best Place Brewery, we host a variety of exciting events throughout the year. From lively live music nights featuring local talent to engaging brewery tours and tasting sessions, there's always something happening for beer enthusiasts and curious newcomers alike. Join us as we create memorable experiences, where friends come together to raise a glass, share laughter, and immerse themselves in the vibrant world of craft beer."}
         </p>
         {isEventToday ? <small>Today, {getEventTime()}</small> : null}
-        <Link href="/beers">Upcoming Events</Link>
+        <div>
+          <Link href="/events" className="btn-primary">
+            Upcoming Events
+          </Link>
+        </div>
       </div>
     </section>
   );

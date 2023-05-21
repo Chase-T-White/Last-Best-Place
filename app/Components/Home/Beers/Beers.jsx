@@ -28,9 +28,9 @@ const transitionVariant = {
 const Beers = () => {
   return (
     <section className={styles.beers_section}>
-      <AnimatePresence initial={false}>
-        {/* <NewBeer /> */}
-        <BeerAnnouncement />
+      <AnimatePresence>
+        <NewBeer />
+        {/* <BeerAnnouncement /> */}
         {/* <BeerOfWeek /> */}
       </AnimatePresence>
     </section>

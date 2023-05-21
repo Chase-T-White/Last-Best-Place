@@ -135,10 +135,15 @@ ul {
 }
 
 .btn-primary {
+  color: var(--text-light);
   background-color: var(--primary-color);
   padding: 0.75rem 2rem;
   border-radius: 5px;
   box-shadow: 0 0 7px 3px var(--light);
+}
+
+.btn__dark-shadow {
+  box-shadow: 0 0 7px 3px var(--text5);
 }
 
 /* Nav Bar */
