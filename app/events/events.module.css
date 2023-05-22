@@ -1,0 +1,28 @@
+/* Event Row */
+
+.event_row {
+  box-shadow: 0 0 2px var(--secondary-color-shade2), 0 0 4px var(--text);
+}
+
+.event_container {
+  display: flex;
+  gap: 4rem;
+}
+
+.event_container > div {
+  flex: 1 1 auto;
+}
+
+.event_imgContainer {
+  width: 100vw;
+  max-width: 350px;
+  height: 100vh;
+  max-height: 350px;
+
+  position: relative;
+}
+
+.event_imgContainer img {
+  object-fit: cover;
+  object-position: center;
+}

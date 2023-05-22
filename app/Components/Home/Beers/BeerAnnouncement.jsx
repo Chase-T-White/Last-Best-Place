@@ -8,9 +8,48 @@ import dadBod from "/public/images/home/beer/dadBod.png";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
+const containerVariants = {
+  hidden: {
+    x: "-100vw",
+  },
+  visible: {
+    x: 0,
+    transition: {
+      duration: 1,
+      type: "linear",
+      when: "beforeChildren",
+    },
+    exit: {
+      x: "100vw",
+      transition: {
+        duration: 1,
+        type: "linear",
+      },
+    },
+  },
+};
+
+// const childVariants = {
+//   hidden: {
+//     opacity: 0,
+//   },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       duration: 1,
+//     },
+//   },
+// };
+
 const BeerAnnouncement = () => {
   return (
-    <article className={styles.beers_article}>
+    <motion.article
+      className={styles.beers_article}
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
       <div className={styles.announcement_content}>
         <div className={styles.announcement_img_container}>
           <Image src={can} alt="LBP beer can" fill />
@@ -26,7 +65,7 @@ const BeerAnnouncement = () => {
               type: "linear",
               repeat: Infinity,
               repeatType: "reverse",
-              repeatDelay: 7,
+              repeatDelay: 3,
             }}
           >
             <Image src={dadBod} alt="Dad Bod" fill />
@@ -40,7 +79,7 @@ const BeerAnnouncement = () => {
           </Link>
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 };
 

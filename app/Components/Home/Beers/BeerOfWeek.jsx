@@ -3,10 +3,50 @@ import styles from "../../../home.module.css";
 import beerWeek from "/public/images/home/beer/beerWeek.jpg";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: {
+    x: "-100vw",
+  },
+  visible: {
+    x: 0,
+    transition: {
+      duration: 1,
+      type: "linear",
+      when: "beforeChildren",
+    },
+    exit: {
+      x: "100vw",
+      transition: {
+        duration: 1,
+        type: "linear",
+      },
+    },
+  },
+};
+
+const childVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 1,
+    },
+  },
+};
 
 const BeerOfWeek = () => {
   return (
-    <article className={styles.beers_article}>
+    <motion.article
+      className={styles.beers_article}
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
       {/* <h1>Beer of the Week</h1> */}
       <div className={styles.beerWeek_img_container}>
         <Image
@@ -29,7 +69,7 @@ const BeerOfWeek = () => {
           View Beers
         </Link>
       </div>
-    </article>
+    </motion.article>
   );
 };
 

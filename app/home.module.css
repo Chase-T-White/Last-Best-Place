@@ -6,6 +6,17 @@
   min-height: 100vh;
 }
 
+.transition_icon {
+  position: absolute;
+  top: 50%;
+  right: 50px;
+  transform: translateY(-50%);
+  z-index: 100;
+  font-size: 5rem;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
 /******** Home Page ********/
 
 /*** Hero ***/
@@ -62,7 +73,7 @@
 .mission_text {
   flex: 0 1 55%;
   padding-inline: 5rem;
-  font-size: clamp(1.5rem, 2vw, 3rem);
+  font-size: clamp(1.5rem, 2vw, 3rem) !important;
   color: var(--text-light);
 }
 
@@ -271,6 +282,7 @@
   border-radius: 10px;
   box-shadow: 0 0 10px 3px var(--light);
   color: var(--light);
+  overflow: hidden;
 }
 
 .visit_content h5 {

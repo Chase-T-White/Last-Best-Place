@@ -1,7 +1,84 @@
-import React from "react";
+"use client";
+
+import { useState, useEffect } from "react";
+import styles from "./events.module.css";
+import Loading from "../Components/Loading";
+import Image from "next/image";
+import { motion } from "framer-motion";
+
+const eventVariants = {
+  initial: {
+    x: -350,
+  },
+  animate: {
+    x: 0,
+    transition: {
+      duration: 0.75,
+      type: "linear",
+    },
+  },
+};
 
 const page = () => {
-  return <div>Events</div>;
+  const [events, setEvents] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      const res = await fetch("/api/events");
+      const data = await res.json();
+      setEvents(data);
+      setIsLoading(false);
+    };
+
+    fetchEvents();
+  }, []);
+
+  const eventRow = (event) => {
+    return (
+      <div className={styles.event_row}>
+        <motion.div
+          variants={eventVariants}
+          initial="initial"
+          whileHover="animate"
+          className={styles.event_container}
+        >
+          <div className={styles.event_imgContainer}>
+            <Image src={event.eventImg} alt="event image" fill />
+          </div>
+          <div>
+            <h5>{event.event}</h5>
+            <strong>
+              <small>{event.when}</small>
+            </strong>
+            <p>{event.description}</p>
+          </div>
+        </motion.div>
+      </div>
+    );
+  };
+
+  return (
+    <section>
+      <header>All Events</header>
+      <article>
+        <h2>Weekly Events</h2>
+        <div>
+          {events
+            .filter((event) => event.specialEvent === false)
+            .map((event) => eventRow(event))}
+        </div>
+      </article>
+      <article>
+        <h2>Upcoming Events</h2>
+        <div>
+          {events
+            .filter((event) => event.specialEvent === true)
+            .map((event) => eventRow(event))}
+        </div>
+      </article>
+    </section>
+  );
 };
 
 export default page;
