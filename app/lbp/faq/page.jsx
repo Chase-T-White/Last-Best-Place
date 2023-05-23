@@ -1,7 +1,8 @@
 import React from "react";
+import PageHeader from "@/app/Components/PageHeader";
 
 const page = () => {
-  return <div>faq</div>;
+  return <section>faq</section>;
 };
 
 export default page;

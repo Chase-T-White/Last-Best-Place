@@ -146,6 +146,15 @@ ul {
   box-shadow: 0 0 7px 3px var(--text5);
 }
 
+.center {
+  text-align: center;
+}
+
+.page-wrapper {
+  max-width: 1400px;
+  margin-inline: auto;
+}
+
 /* Nav Bar */
 
 nav {
@@ -173,6 +182,36 @@ nav {
 .nav-link__dropdown {
   position: absolute;
   display: none;
+}
+
+/* Page Header */
+
+.pageHeader {
+  position: relative;
+  width: 100vw;
+  height: 50vh;
+  min-height: 400px;
+  isolation: isolate;
+}
+
+.pageHeader h2 {
+  position: absolute;
+  left: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 1rem 12rem;
+  background-color: #eeeeeec7;
+  z-index: 10;
+}
+
+.pageHeader div {
+  width: 100%;
+  height: 100%;
+}
+
+.pageHeader div > img {
+  object-fit: cover;
+  object-position: center;
 }
 
 /* Beer Carousel */

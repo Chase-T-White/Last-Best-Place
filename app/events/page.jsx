@@ -5,10 +5,12 @@ import styles from "./events.module.css";
 import Loading from "../Components/Loading";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import headerPic from "/public/images/events/headerPic.jpg";
+import PageHeader from "../Components/PageHeader";
 
 const eventVariants = {
   initial: {
-    x: -350,
+    x: -880,
   },
   animate: {
     x: 0,
@@ -34,6 +36,10 @@ const page = () => {
     fetchEvents();
   }, []);
 
+  if (isLoading) {
+    return <Loading />;
+  }
+
   const eventRow = (event) => {
     return (
       <div className={styles.event_row}>
@@ -46,8 +52,8 @@ const page = () => {
           <div className={styles.event_imgContainer}>
             <Image src={event.eventImg} alt="event image" fill />
           </div>
-          <div>
-            <h5>{event.event}</h5>
+          <div className={styles.events_text_container}>
+            <h4>{event.event}</h4>
             <strong>
               <small>{event.when}</small>
             </strong>
@@ -60,8 +66,8 @@ const page = () => {
 
   return (
     <section>
-      <header>All Events</header>
-      <article>
+      <PageHeader heading={"LBP Events"} img={headerPic} />
+      <article className={styles.events_category}>
         <h2>Weekly Events</h2>
         <div>
           {events
@@ -69,7 +75,7 @@ const page = () => {
             .map((event) => eventRow(event))}
         </div>
       </article>
-      <article>
+      <article className={styles.events_category}>
         <h2>Upcoming Events</h2>
         <div>
           {events

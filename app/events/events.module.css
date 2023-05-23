@@ -1,12 +1,21 @@
+/* Category Container */
+
+.events_category h2 {
+  text-align: center;
+  margin-block: 8rem;
+}
+
 /* Event Row */
 
 .event_row {
+  padding-block: 3rem;
   box-shadow: 0 0 2px var(--secondary-color-shade2), 0 0 4px var(--text);
 }
 
 .event_container {
   display: flex;
   gap: 4rem;
+  padding-inline: 5rem;
 }
 
 .event_container > div {
@@ -15,7 +24,7 @@
 
 .event_imgContainer {
   width: 100vw;
-  max-width: 350px;
+  max-width: 800px;
   height: 100vh;
   max-height: 350px;
 
@@ -25,4 +34,21 @@
 .event_imgContainer img {
   object-fit: cover;
   object-position: center;
+}
+
+.events_text_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: fit-content;
+  max-width: 1200px;
+}
+
+.events_text_container h4 {
+  color: var(--primary-color-tint1);
+  margin-bottom: 0.25rem;
+}
+
+.events_text_container strong {
+  margin-bottom: 1.5rem;
 }
