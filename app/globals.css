@@ -157,11 +157,17 @@ ul {
 
 /* Nav Bar */
 
-nav {
+.main-nav {
   margin-inline: 1rem;
   padding-block: 0.5rem;
-  border-bottom: 2px solid var(--text2);
   display: flex;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background-color: transparent;
+  z-index: 100;
 }
 
 .nav-links_container {
@@ -173,15 +179,25 @@ nav {
 }
 
 .nav-link {
+  color: var(--text);
+  text-shadow: 0 0 3px var(--light);
 }
 
 .nav-dropdown {
   position: relative;
 }
 
+.nav-link__hidden-dropdown {
+  display: none;
+}
+
 .nav-link__dropdown {
   position: absolute;
-  display: none;
+  top: 100%;
+
+  display: flex;
+  gap: 1rem;
+  background-color: var(--secondary-color);
 }
 
 /* Page Header */
@@ -189,7 +205,7 @@ nav {
 .pageHeader {
   position: relative;
   width: 100vw;
-  height: 50vh;
+  height: 60vh;
   min-height: 400px;
   isolation: isolate;
 }

@@ -4,48 +4,20 @@
     "name": "Colin",
     "title": "Head Ape",
     "bio": "Colin grew up in rural Northern Virgina, with a childhood full of all the sports and instruments a child can handle. In 2011, Colin moved to Montana to attend the College of Business and run track at MSU. He soon found his love for craft beer and his sister's gift of a home brewing kit kicked off his interest in developing recipes and testing new brews on friends. Colin is thrilled to join Bozeman's prestigious brewing community and open the doors of LBP Brewing. While you'll find him around the brewery most days, he also enjoys working around the farm, hiking with his wife and dogs, skiing or hunting.",
-    "teamMemberImg": ""
+    "teamMemberImg": "/images/lbp/team/colin/main.jpg"
   },
   {
     "id": "2",
     "name": "Will",
     "title": "Brewmaster",
     "bio": "Will's brewing journey began as a freshman at Virginia Tech, fermenting beer under his dormroom bed and joining the Virginia Tech Homebrewing Club. Upon receiving his Undergraduate degree, Will moved to Montana to where he received his Master's from MSU. Over the years, Will's expertise as a brewer turned his hobby into a profession that he is passionate and proud of. Will's experience includes time at both Outlaw Brewing Company and Madison River Brewing Company where he further honed his skills, which he know showcases as our Brewmaster! Will also enjoys shredding powder up at Bridger Bowl, hunting in the high country and playing beer-league softball around the valley.",
-    "teamMemberImg": ""
+    "teamMemberImg": "/images/lbp/team/will/img2.jpg"
   },
   {
     "id": "3",
     "name": "Jarvi",
     "title": "Senior Bartender & Social Media Wizard",
     "bio": "",
-    "teamMemberImg": ""
-  },
-  {
-    "id": "4",
-    "name": "Hailley",
-    "title": "Bartender",
-    "bio": "",
-    "teamMemberImg": ""
-  },
-  {
-    "id": "5",
-    "name": "Maddie",
-    "title": "Bartender",
-    "bio": "",
-    "teamMemberImg": ""
-  },
-  {
-    "id": "6",
-    "name": "Sophie",
-    "title": "Bartender",
-    "bio": "",
-    "teamMemberImg": ""
-  },
-  {
-    "id": "7",
-    "name": "Keith",
-    "title": "Sales & Distribution",
-    "bio": "",
-    "teamMemberImg": ""
+    "teamMemberImg": "/images/lbp/team/jarviMain.jpg"
   }
 ]

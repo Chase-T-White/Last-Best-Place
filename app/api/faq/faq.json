@@ -1,0 +1,15 @@
+[
+  {
+    "id": "1",
+    "question": "Do you have food?",
+    "answer": "We do have some snacks available, but if you need a bigger bite, we encourage patrons to grab food from our neighboring food trucks or restaurants (we have menus). You can also bring your own food in or most food delivery services know where to find us now!",
+    "withPicture": false
+  },
+  {
+    "id": "2",
+    "question": "Where can we park?",
+    "answer": "We have some parking behind the building, but be aware that certain spaces are signed and reserved for building residents after 5 pm. There is additional parking available just across the street to the south, in the lot between Rikki's furniture and Access Fitness (you'll see the food trucks at the front). There is also street parking along 7th Ave.",
+    "withPicture": true,
+    "image": "/images/lbp/parking.png"
+  }
+]
