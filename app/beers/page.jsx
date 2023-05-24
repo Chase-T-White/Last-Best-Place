@@ -74,11 +74,6 @@ const page = () => {
       const data = await res.json();
       setBeers(data);
       setCurrentBeer(data[0]);
-      // setBeerImgs(() => {
-      //   beers.map((beer) => {
-      //     return beer.beerImg;
-      //   });
-      // });
       setIsLoading(false);
     };
 
@@ -176,7 +171,7 @@ const page = () => {
               className={styles.beerImgs_container}
             >
               <Image
-                src={beers[index + 1].beerImg}
+                src={beers[index === beers.length - 1 ? 0 : index + 1].beerImg}
                 alt="LBP beer in pint glass"
                 fill
               />

@@ -1,16 +1,17 @@
 .beers_list {
-  overflow: hidden;
+  /* overflow: hidden; */
   width: 100vw;
-  height: calc(100vh - 97px);
+  height: calc(100vh - 6rem);
   min-height: 800px;
+  margin-top: 6rem;
 }
 
 .beers_list__item {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(7, 1fr);
-  min-width: 100%;
-  min-height: 100%;
+  width: 100%;
+  height: 100%;
   padding: 4rem 2rem 2rem;
 }
 
@@ -37,8 +38,9 @@
 }
 
 .beer_text__container div {
-  grid-column: span 3;
-  grid-row: 7 / span 1;
+  grid-column: span 4;
+  grid-row: 6 / span 2;
+  align-self: end;
 }
 
 /* Beer Images */
@@ -68,11 +70,13 @@
 
 .beer_background_container {
   display: inline-block;
-  border-radius: 100vw;
+  /* border-radius: 100vw; */
+  border-top-right-radius: 100vw;
+  border-top-left-radius: 100vw;
   overflow: hidden;
 
-  width: 60%;
-  height: 80%;
+  width: 90%;
+  height: 85%;
 }
 
 .beer_subContainer {
@@ -83,7 +87,6 @@
 
 .beer_background {
   object-fit: cover;
-  object-position: center;
 }
 
 /* Next Beer Aside */
