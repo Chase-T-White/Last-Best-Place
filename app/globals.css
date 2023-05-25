@@ -136,6 +136,7 @@ ul {
 }
 
 .btn-primary {
+  display: inline-block;
   color: var(--text-light);
   background-color: var(--primary-color);
   padding: 0.75rem 2rem;
@@ -190,11 +191,8 @@ ul {
 .nav-link {
   color: var(--text);
   text-shadow: 0 0 3px var(--light);
+  cursor: pointer;
 }
-
-/* .nav-dropdown {
-  position: relative;
-} */
 
 .nav-link__hidden-dropdown {
   display: none;

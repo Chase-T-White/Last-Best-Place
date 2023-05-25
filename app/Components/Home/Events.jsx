@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "../../home.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import event from "/public/images/home/events/default1.jpg";
+import { motion, useInView, useAnimation } from "framer-motion";
 
 const Events = () => {
   const [isEventToday, setIsEventToday] = useState(false);
@@ -35,15 +36,35 @@ const Events = () => {
     return whenArray[1];
   };
 
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
+
+  const mainControls = useAnimation();
+
+  useEffect(() => {
+    if (isInView) {
+      mainControls.start("visible");
+    }
+  }, [isInView]);
+
   return (
-    <section className={styles.events_section}>
+    <section ref={ref} className={styles.events_section}>
       <Image
         src={isEventToday ? currentEvent.eventImg : event}
         alt="Image of an event at Last Best Place Brewery"
         className={styles.events_img}
         fill
       />
-      <div className={styles.events_content}>
+      <motion.div
+        variants={{
+          initial: { opacity: 0, y: "100%" },
+          visible: { opacity: 1, y: 0 },
+        }}
+        initial="initial"
+        animate={mainControls}
+        transition={{ duration: 1, type: "linear" }}
+        className={styles.events_content}
+      >
         <h3>{isEventToday ? currentEvent.event : "Events"}</h3>
         <p>
           {isEventToday
@@ -56,7 +77,7 @@ const Events = () => {
             Upcoming Events
           </Link>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

@@ -1,21 +1,37 @@
 "use client";
 
-import React from "react";
+import { useEffect, useRef } from "react";
 import styles from "../../home.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import building from "/public/images/home/visit/visit1.jpg";
 import inside from "/public/images/home/visit/visit2.jpg";
-import { motion } from "framer-motion";
+import { motion, useAnimation, useInView } from "framer-motion";
 import { AiFillFacebook, AiFillInstagram, AiFillMail } from "react-icons/ai";
 
 const Visit = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.35 });
+
+  const mainControls = useAnimation();
+
+  useEffect(() => {
+    if (isInView) {
+      mainControls.start("visible");
+    }
+  }, [isInView]);
+
   return (
-    <section className={styles.visit_section}>
+    <section ref={ref} className={styles.visit_section}>
       <div className={styles.visit_img_block}>
         <motion.div
-          initial={{ x: "-100vw" }}
-          animate={{ x: 0, transition: { duration: 1, type: "linear" } }}
+          variants={{
+            initial: { x: "-100vw" },
+            visible: { x: 0 },
+          }}
+          initial="initial"
+          animate={mainControls}
+          transition={{ duration: 1, type: "linear" }}
           className={styles.block_img_container}
         >
           <Image
@@ -25,8 +41,13 @@ const Visit = () => {
           />
         </motion.div>
         <motion.div
-          initial={{ x: "100vw" }}
-          animate={{ x: 0, transition: { duration: 1, type: "linear" } }}
+          variants={{
+            initial: { x: "100vw" },
+            visible: { x: 0 },
+          }}
+          initial="initial"
+          animate={mainControls}
+          transition={{ duration: 1, type: "linear" }}
           className={styles.block_img_container}
         >
           <Image

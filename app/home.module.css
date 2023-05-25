@@ -9,10 +9,10 @@
 .transition_icon {
   position: absolute;
   top: 50%;
-  right: 50px;
+  right: 25px;
   transform: translateY(-50%);
   z-index: 100;
-  font-size: 5rem;
+  font-size: 4rem;
   color: var(--primary-color);
   cursor: pointer;
 }
@@ -31,8 +31,8 @@
 
 .hero_video {
   position: absolute;
-  min-width: 100%;
-  min-height: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -66,15 +66,34 @@
 
 .mission_img {
   object-fit: cover;
+  object-position: center;
   width: 100%;
   height: 100%;
 }
 
 .mission_text {
   flex: 0 1 55%;
-  padding-inline: 5rem;
-  font-size: clamp(1.5rem, 2vw, 3rem) !important;
+  padding-inline: clamp(2rem, 4vw, 5rem);
   color: var(--text-light);
+}
+
+.mission_text p {
+  font-size: clamp(1rem, 2.5vw, 2.5rem) !important;
+}
+
+@media screen and (max-width: 850px) {
+  .mission_content {
+    flex-direction: column;
+    gap: 5rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .mission_img_container {
+    width: 100%;
+    flex-basis: auto;
+    height: 500px;
+  }
 }
 
 /*** Beers ***/
@@ -113,7 +132,7 @@
   flex-direction: column;
   gap: 2.5rem;
   justify-content: center;
-  grid-column: 8 / -2;
+  grid-column: 7 / -2;
   grid-row: 4 / -2;
 
   background-color: #1f1f1fb2;
@@ -126,11 +145,37 @@
   position: absolute;
   top: 0;
   left: 0;
-  transform: translate(-50px, -50%);
+  transform: translate(-70px, -60%);
+  width: max-content;
   color: var(--text);
   background-color: var(--light);
   text-align: center;
   padding: 1rem 1.5rem;
+}
+
+@media screen and (max-width: 750px) {
+  .beers_content {
+    grid-column: 3 / -3;
+    grid-row: 5 / -2;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .beers_content {
+    grid-column: 2 / -2;
+  }
+
+  .beers_content h3 {
+    transform: translate(0, -100%);
+    width: 100%;
+  }
+
+  .transition_icon {
+    top: auto;
+    bottom: 0;
+    right: 50%;
+    transform: translate(50%, -50%);
+  }
 }
 
 /* Beer Announcement */
@@ -139,7 +184,7 @@
   display: grid;
   grid-template-columns: subgrid;
   grid-template-rows: subgrid;
-  grid-column: 3 / span 8;
+  grid-column: 3 / span 9;
   grid-row: 2 / span 5;
 }
 
@@ -163,7 +208,7 @@
 }
 
 .announcemet_text_content {
-  grid-column: 5 / span 4;
+  grid-column: 5 / span 5;
   grid-row: 2 / span 4;
 }
 
@@ -201,6 +246,30 @@
   margin-bottom: 2rem;
 }
 
+@media screen and (max-width: 750px) {
+  .beerWeek_img_container {
+    position: relative;
+    grid-column: span 12;
+    grid-row: span 4;
+  }
+  .beerWeek_content {
+    grid-column: 2 / span 10;
+    grid-row: 5 / span 3;
+    padding-block: 5rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .beerWeek_img_container {
+    position: relative;
+    grid-column: span 12;
+    grid-row: span 3;
+  }
+  .beerWeek_content {
+    grid-row: 4 / span 4;
+  }
+}
+
 /*** Events ***/
 
 .events_section {
@@ -228,10 +297,11 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 1rem;
   justify-content: center;
-  grid-column: 2 / span 4;
+  grid-column: 2 / span 5;
   grid-row: 4 / -2;
+  min-height: max-content;
 
   background-color: #1f1f1fc9;
   backdrop-filter: blur(10px);
@@ -243,11 +313,29 @@
   position: absolute;
   top: 0;
   left: 0;
-  transform: translate(-50px, -50%);
+  transform: translate(-70px, -60%);
   color: var(--text);
   background-color: var(--light);
   text-align: center;
   padding: 1rem 1.5rem;
+}
+
+@media screen and (max-width: 750px) {
+  .events_content {
+    grid-column: 3 / -3;
+    grid-row: 5 / -2;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .events_content {
+    grid-column: 2 / -2;
+  }
+
+  .events_content h3 {
+    transform: translate(0, -100%);
+    width: 100%;
+  }
 }
 
 /*** Visit ***/
@@ -271,6 +359,10 @@
   position: relative;
   width: 45vw;
   height: 600px;
+}
+
+.block_img_container > img {
+  object-fit: cover;
 }
 
 .visit_content {
@@ -319,4 +411,21 @@
 .lbp_map {
   width: 100%;
   height: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+  .visit_content {
+    flex-direction: column;
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .block_img_container {
+    width: 90vw;
+    height: 400px;
+  }
+  .block_img_container:last-child {
+    display: none;
+  }
 }
