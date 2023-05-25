@@ -241,6 +241,13 @@ ul {
   object-position: center;
 }
 
+@media screen and (max-width: 750px) {
+  .pageHeader h2 {
+    padding: 1rem 2rem;
+    left: 10px;
+  }
+}
+
 /* Beer Carousel */
 
 .beer-current * {

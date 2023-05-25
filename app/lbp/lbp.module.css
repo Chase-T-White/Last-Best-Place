@@ -80,8 +80,11 @@
 .member_container {
   display: flex;
   align-items: center;
-  gap: 4rem;
   max-height: 500px;
+}
+
+.member_textContainer {
+  padding-inline: 2rem;
 }
 
 .member_textContainer h3 {
@@ -103,4 +106,22 @@
 .member_imgContainer img {
   object-fit: cover;
   object-position: center;
+}
+
+@media screen and (max-width: 750px) {
+  .member_container {
+    flex-direction: column;
+    max-height: max-content;
+    padding-block: 2rem;
+  }
+  .member_background:nth-child(even) .member_container {
+    flex-direction: column;
+  }
+  .member_imgContainer {
+    width: 100vw;
+    min-height: 100px;
+  }
+  .member_imgContainer img {
+    object-fit: contain;
+  }
 }

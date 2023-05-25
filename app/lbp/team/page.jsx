@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react";
 import styles from "../lbp.module.css";
 import PageHeader from "@/app/Components/PageHeader";
+import TeamRow from "@/app/Components/LBP/TeamRow";
 import Loading from "@/app/Components/Loading";
-import Image from "next/image";
 import headerImg from "/public/images/lbp/teamHeader.jpg";
 
 const page = () => {
@@ -31,28 +31,7 @@ const page = () => {
       <PageHeader heading={"Meet the Team"} img={headerImg} />
       <article className={styles.team_container}>
         {team.map((member) => {
-          return (
-            <div key={member.id} className={styles.member_background}>
-              <div className="page-wrapper">
-                <div className={styles.member_container}>
-                  <div className={styles.member_imgContainer}>
-                    <Image
-                      src={member.teamMemberImg}
-                      alt={`Picture of ${member.name}`}
-                      fill
-                    />
-                  </div>
-                  <div className={styles.member_textContainer}>
-                    <h3>{member.name}</h3>
-                    <p>
-                      <strong>{member.title}</strong>
-                    </p>
-                    <p>{member.bio}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          );
+          return <TeamRow member={member} />;
         })}
       </article>
     </section>
