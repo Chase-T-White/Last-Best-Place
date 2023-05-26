@@ -16,11 +16,16 @@ const page = () => {
             <div className={styles.contact_text_container}>
               <p>
                 We would love to hear from you! We may have already answered
-                your question. Check out our <Link href="#">FAQs.</Link>
+                your question. Check out our{" "}
+                <Link href="/lbp/faq">
+                  <strong>FAQs</strong>
+                </Link>
+                .
+                <br />
                 <br />
                 <strong>(406) 266-2913</strong>
               </p>
-              <div className={styles.visit_icons_container}>
+              <div className={styles.contact_icons_container}>
                 <Link
                   href="https://www.facebook.com/LBPbrewing/"
                   target="_blank"
@@ -33,7 +38,9 @@ const page = () => {
                 >
                   <AiFillInstagram />
                 </Link>
-                <AiFillMail />
+                <Link href="#">
+                  <AiFillMail />
+                </Link>
               </div>
             </div>
             <form action="" className={styles.contact_form}>
@@ -61,7 +68,9 @@ const page = () => {
                 ></textarea>
               </div>
               <div>
-                <button type="submit">Send</button>
+                <button type="submit" className="btn-primary btn__dark-shadow">
+                  Send
+                </button>
               </div>
             </form>
           </div>

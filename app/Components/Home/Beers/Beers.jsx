@@ -30,8 +30,11 @@ const Beers = () => {
 
   return (
     <section className={styles.beers_section}>
-      <AnimatePresence initial={false} mode="sync">
+      <AnimatePresence initial={false}>
         {carousalItems[index]}
+        {/* {carousalItems.map((item) => {
+          return item;
+        })} */}
         <BsFillArrowRightCircleFill
           className={styles.transition_icon}
           onClick={() => {

@@ -8,6 +8,10 @@
   margin-bottom: 4rem;
 }
 
+.faqs_contentContainer > div {
+  min-height: 80vh;
+}
+
 .faq_container {
   margin-bottom: 2rem;
   cursor: pointer;
@@ -23,13 +27,14 @@
   padding-block: 1rem;
 }
 
-.faq_answerHidden {
-  display: none;
-}
-
 .faq_answerContainer {
   display: flex;
   gap: 3rem;
+  overflow: hidden;
+}
+
+.faq_answerContainer > p {
+  flex: 1 2 auto;
 }
 
 .faq_imgContainer {
@@ -42,6 +47,12 @@
 .faq_imgContainer img {
   object-fit: contain;
   object-position: center;
+}
+
+@media screen and (max-width: 750px) {
+  .faq_answerContainer {
+    flex-wrap: wrap;
+  }
 }
 
 /*** Story ***/

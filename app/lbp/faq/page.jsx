@@ -65,20 +65,24 @@ const page = () => {
                       <AiOutlinePlus />
                     )}
                   </header>
-                  <div
-                    className={`${
-                      selectedID === faq.id && showAnswer
-                        ? styles.faq_answerContainer
-                        : styles.faq_answerHidden
-                    }`}
-                  >
-                    <p>{faq.answer}</p>
-                    {faq.withPicture && (
-                      <div className={styles.faq_imgContainer}>
-                        <Image src={faq.image} alt="picture" fill />
-                      </div>
+                  <AnimatePresence>
+                    {selectedID === faq.id && showAnswer && (
+                      <motion.div
+                        initial={{ height: 0 }}
+                        animate={{ height: "auto" }}
+                        exit={{ height: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className={styles.faq_answerContainer}
+                      >
+                        <p>{faq.answer}</p>
+                        {faq.withPicture && (
+                          <div className={styles.faq_imgContainer}>
+                            <Image src={faq.image} alt="picture" fill />
+                          </div>
+                        )}
+                      </motion.div>
                     )}
-                  </div>
+                  </AnimatePresence>
                 </div>
               );
             })}
