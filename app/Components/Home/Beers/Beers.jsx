@@ -9,43 +9,41 @@ import { motion, AnimatePresence } from "framer-motion";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 
 const Beers = () => {
-  const carousalItems = [
-    <NewBeer key={1} />,
-    <BeerAnnouncement key={2} />,
-    <BeerOfWeek key={3} />,
+  const carouselItems = [
+    { id: 1, component: <NewBeer /> },
+    { id: 2, component: <BeerAnnouncement /> },
+    { id: 3, component: <BeerOfWeek /> },
   ];
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (index === carousalItems.length - 1) {
-        setIndex(0);
-      } else {
-        setIndex(index + 1);
-      }
+      setIndex((prevIndex) => (prevIndex + 1) % carouselItems.length);
     }, 10000);
 
-    return clearTimeout(timer);
-  }, [index]);
+    return () => clearTimeout(timer);
+  }, [index, carouselItems.length]);
 
   return (
     <section className={styles.beers_section}>
-      <AnimatePresence initial={false}>
-        {carousalItems[index]}
-        {/* {carousalItems.map((item) => {
-          return item;
-        })} */}
-        <BsFillArrowRightCircleFill
-          className={styles.transition_icon}
-          onClick={() => {
-            if (index === carousalItems.length - 1) {
-              setIndex(0);
-            } else {
-              setIndex(index + 1);
-            }
-          }}
-        />
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={carouselItems[index].id}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          style={{ height: "100%" }}
+        >
+          {carouselItems[index].component}
+        </motion.div>
       </AnimatePresence>
+
+      <BsFillArrowRightCircleFill
+        className={styles.transition_icon}
+        onClick={() => {
+          setIndex((prevIndex) => (prevIndex + 1) % carouselItems.length);
+        }}
+      />
     </section>
   );
 };

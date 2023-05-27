@@ -173,7 +173,7 @@ ul {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: calc(100vw - 2rem);
   background-color: transparent;
   z-index: 100;
 }
@@ -215,6 +215,42 @@ ul {
   padding: 1rem 2rem;
   margin-top: 0.5rem;
   background-color: var(--secondary-color);
+}
+
+.nav-menuCollapse {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  max-width: 500px;
+  height: 100vh;
+  background-color: #1f1f1fc4;
+  backdrop-filter: blur(20px);
+}
+
+.nav-icon {
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.nav-menuCollapse,
+.nav-iconContainer {
+  display: none;
+}
+
+@media screen and (max-width: 750px) {
+  .main-nav > div:last-child {
+    justify-content: flex-end;
+  }
+  .nav-menuHidden {
+    display: none;
+  }
+  .nav-menuCollapse {
+    display: block;
+  }
+  .nav-iconContainer {
+    display: inline-block;
+  }
 }
 
 /* Page Header */

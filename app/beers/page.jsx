@@ -10,10 +10,22 @@ import {
 } from "react-icons/bs";
 import { motion, AnimatePresence } from "framer-motion";
 
+const parentVariant = {
+  initial: { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: { delay: 0.5, type: "linear", when: "beforeChildren" },
+  },
+  exit: {
+    opacity: 1,
+    transition: { duration: 0.5, type: "linear", when: "afterChildren" },
+  },
+};
+
 const textVariants = {
   initial: {
     opacity: 0,
-    y: "100%",
+    y: "10%",
   },
   visible: {
     opacity: 1,
@@ -26,7 +38,7 @@ const textVariants = {
   },
   exit: {
     opacity: 0,
-    y: "100%",
+    y: "10%",
     transition: {
       duration: 0.5,
       staggerChildren: 0.1,
@@ -42,12 +54,13 @@ const imgVariants = {
   },
   initialSm: {
     opacity: 0,
-    scale: 0,
+    scale: 0.5,
   },
   visible: {
     opacity: 1,
     scale: 1,
     transition: {
+      delay: 0.75,
       duration: 0.5,
       type: "linear",
     },
@@ -55,10 +68,18 @@ const imgVariants = {
   exitLg: {
     opacity: 0,
     scale: 1.5,
+    transition: {
+      duration: 0.5,
+      type: "linear",
+    },
   },
   exitSm: {
     opacity: 0,
-    scale: 0,
+    scale: 0.5,
+    transition: {
+      duration: 0.5,
+      type: "linear",
+    },
   },
 };
 
@@ -90,17 +111,21 @@ const page = () => {
 
   return (
     <main className={styles.beers_list}>
-      <AnimatePresence initial={false}>
-        <article key={index} className={`${styles.beers_list__item}`}>
+      <AnimatePresence>
+        <motion.article
+          key={index}
+          className={`${styles.beers_list__item}`}
+          variants={parentVariant}
+          initial="initial"
+          animate="visible"
+          exit="exit"
+        >
           <aside
             className={`${styles.beers_list__item_aside} ${styles.beer_text__container}`}
           >
             <motion.header
               className={styles.beer_upper_text}
               variants={textVariants}
-              initial="initial"
-              animate="visible"
-              exit="exit"
             >
               <h4 className={`alt-textStyle ${styles.beer_text}`}>
                 {currentBeer.type}
@@ -110,12 +135,7 @@ const page = () => {
                 {currentBeer.alcoholContent}
               </h6>
             </motion.header>
-            <motion.div
-              variants={textVariants}
-              initial="initial"
-              animate="visible"
-              exit="exit"
-            >
+            <motion.div variants={textVariants}>
               <h6 className={`alt-textStyle ${styles.beer_text}`}>
                 {currentBeer.category}
               </h6>
@@ -177,8 +197,9 @@ const page = () => {
               />
             </motion.div>
           </aside>
-        </article>
+        </motion.article>
       </AnimatePresence>
+
       <div className={styles.beers_arrowIcons__container}>
         <BsFillArrowLeftCircleFill
           className={styles.beers_arrowIcon}
