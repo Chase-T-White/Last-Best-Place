@@ -289,3 +289,15 @@ ul {
     left: 10px;
   }
 }
+
+/* Footer */
+
+footer {
+  padding: 6rem 2rem;
+  background-color: var(--text);
+  color: var(--text-light);
+}
+
+footer p {
+  text-align: center;
+}
