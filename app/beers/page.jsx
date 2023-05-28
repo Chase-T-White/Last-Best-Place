@@ -14,7 +14,7 @@ const parentVariant = {
   initial: { opacity: 1 },
   visible: {
     opacity: 1,
-    transition: { delay: 0.5, type: "linear", when: "beforeChildren" },
+    transition: { delay: 0.75, type: "linear", when: "beforeChildren" },
   },
   exit: {
     opacity: 1,
@@ -25,23 +25,24 @@ const parentVariant = {
 const textVariants = {
   initial: {
     opacity: 0,
-    y: "10%",
+    y: 70,
+    rotate: 5,
   },
   visible: {
     opacity: 1,
     y: 0,
+    rotate: 0,
     transition: {
       duration: 0.5,
-      staggerChildren: 0.1,
       type: "linear",
     },
   },
   exit: {
     opacity: 0,
-    y: "10%",
+    y: 70,
+    rotate: 5,
     transition: {
       duration: 0.5,
-      staggerChildren: 0.1,
       type: "linear",
     },
   },
@@ -60,8 +61,8 @@ const imgVariants = {
     opacity: 1,
     scale: 1,
     transition: {
-      delay: 0.75,
-      duration: 0.5,
+      delay: 0.9,
+      duration: 0.75,
       type: "linear",
     },
   },
@@ -135,13 +136,20 @@ const page = () => {
                 {currentBeer.alcoholContent}
               </h6>
             </motion.header>
-            <motion.div variants={textVariants}>
-              <h6 className={`alt-textStyle ${styles.beer_text}`}>
-                {currentBeer.category}
+            <motion.div
+              variants={textVariants}
+              className={styles.beer_lower_text}
+            >
+              <h6 className={styles.beer_text}>
+                <strong>{currentBeer.category}</strong>
               </h6>
               <p className={styles.beer_text}>{currentBeer.description}</p>
               {currentBeer.glutenReduced ? (
-                <p className={styles.beer_text}>**Gluten Reduced</p>
+                <p
+                  className={`${styles.beer_text} ${styles.beer_text__gluten}`}
+                >
+                  <em>**Gluten Reduced</em>
+                </p>
               ) : (
                 ""
               )}
