@@ -4,6 +4,7 @@
   height: calc(100vh - 6rem);
   min-height: 800px;
   margin-top: 6rem;
+  position: relative;
 }
 
 .beers_list__item {
